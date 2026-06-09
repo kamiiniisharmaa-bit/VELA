@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>VELA — edit | explore</title>
+  <!-- Google Fonts + smooth base -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fefefe;
+      color: #101010;
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header / nav */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid #eeeef2;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.02);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: none;
+      color: #ff7e5e;
+      background: linear-gradient(145deg, #FF6A4B, #FF8A65);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c2c3a;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ff6a4b;
+    }
+
+    .cart-icon {
+      background: #f3f3f7;
+      padding: 8px 14px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* hero */
+    .hero {
+      padding: 64px 0 56px;
+      background: #faf9ff;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: #ffe6e0;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #c2410c;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #121826;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #4b5565;
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      background: #121826;
+      color: white;
+      border: none;
+      padding: 14px 34px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #2d3a6e;
+      transform: scale(0.98);
+    }
+
+    .hero-image {
+      flex: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 44px;
+      box-shadow: 0 25px 40px -20px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+
+    /* section headers */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 56px 0 28px 0;
+      letter-spacing: -0.01em;
+      border-left: 6px solid #ff7a54;
+      padding-left: 20px;
+    }
+
+    /* product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #f0f0f4;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 36px -12px rgba(0,0,0,0.12);
+      border-color: #ffe0d6;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #f5f3f0;
+    }
+
+    .product-info {
+      padding: 20px 18px 22px;
+    }
+
+    .product-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ff6a4b;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #1f2a48;
+    }
+
+    .add-btn {
+      background: #f1f1f6;
+      border: none;
+      border-radius: 40px;
+      padding: 8px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .add-btn:hover {
+      background: #121826;
+      color: white;
+    }
+
+    /* featured banners */
+    .feature-banner {
+      background: linear-gradient(110deg, #f3efe9 0%, #f9f5f0 100%);
+      border-radius: 48px;
+      margin: 40px 0 60px;
+      padding: 48px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .banner-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      max-width: 380px;
+    }
+
+    .banner-text p {
+      margin-top: 10px;
+      color: #3f3f4e;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #121826;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* footer */
+    footer {
+      background: #f9f8fc;
+      border-top: 1px solid #eaeef5;
+      margin-top: 72px;
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-col h4 {
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #4e5a6e;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #83899b;
+    }
+
+    @media (max-width: 750px) {
+      .hero-text h1 { font-size: 2.4rem; }
+      .container { padding: 0 20px; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="navbar">
+      <a href="#" class="logo">VELA<span>.</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero section with working image -->
+  <div class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge">✨ limited release</div>
+        <h1>Where design meets <br> quiet intention</h1>
+        <p>Everyday objects with soul — curated for modern life. VELA brings honest materials and sculptural forms to your space.</p>
+        <a href="#" class="btn-primary">Shop new arrivals →</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://picsum.photos/id/20/620/580" alt="minimalist ceramics and decor" style="width:100%; border-radius: 36px;">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Editors' pick</h2>
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/30/600/600" alt="stoneware mug">
+        <div class="product-info">
+          <div class="product-category">Tableware</div>
+          <div class="product-title">Karu Mug</div>
+          <div class="price-row">
+            <span class="price">$48</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/26/600/600" alt="linen shirt">
+        <div class="product-info">
+          <div class="product-category">Apparel</div>
+          <div class="product-title">Stone Linen Shirt</div>
+          <div class="price-row">
+            <span class="price">$129</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/66/600/600" alt="leather tote">
+        <div class="product-info">
+          <div class="product-category">Bags</div>
+          <div class="product-title">Axis Tote</div>
+          <div class="price-row">
+            <span class="price">$199</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/169/600/600" alt="vessel lamp">
+        <div class="product-info">
+          <div class="product-category">Lighting</div>
+          <div class="product-title">Orbit Lamp</div>
+          <div class="price-row">
+            <span class="price">$275</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- seasonal banner with distinct image -->
+  <div class="container">
+    <div class="feature-banner">
+      <div class="banner-text">
+        <h3>Velum collection: raw & refined</h3>
+        <p>Limited ceramic drop — handbuilt in Kyoto studio.</p>
+        <button class="btn-outline" style="margin-top: 20px;">Explore collection →</button>
+      </div>
+      <div>
+        <img src="https://picsum.photos/id/29/300/280" alt="minimal ceramic set" style="border-radius: 30px; width: 240px; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Recently viewed</h2>
+    <div class="product-grid">
+      <!-- Product 5 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/42/600/600" alt="black chair">
+        <div class="product-info">
+          <div class="product-category">Furniture</div>
+          <div class="product-title">Nodi Stool</div>
+          <div class="price-row">
+            <span class="price">$345</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 6 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/28/600/600" alt="soap dish">
+        <div class="product-info">
+          <div class="product-category">Bath</div>
+          <div class="product-title">Terrazzo Dish</div>
+          <div class="price-row">
+            <span class="price">$34</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 7 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/224/600/600" alt="wool blanket">
+        <div class="product-info">
+          <div class="product-category">Textiles</div>
+          <div class="product-title">Alpine Blanket</div>
+          <div class="price-row">
+            <span class="price">$158</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 8 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/59/600/600" alt="glass carafe">
+        <div class="product-info">
+          <div class="product-category">Kitchen</div>
+          <div class="product-title">Rift Carafe</div>
+          <div class="price-row">
+            <span class="price">$62</span>
+            <button class="add-btn">Add →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- extra unique callout: signup -->
+  <div class="container">
+    <div style="background: #121826; border-radius: 44px; padding: 48px 36px; margin: 40px 0 20px; color: white; text-align: center;">
+      <h3 style="font-size: 1.8rem; font-weight: 600;">First look at VELA edits</h3>
+      <p style="margin: 12px 0 24px; opacity: 0.8;">Get early access to drops and studio notes.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+        <input type="email" placeholder="Your email" style="padding: 14px 24px; border-radius: 60px; border: none; min-width: 240px;">
+        <button style="background: #ff7a54; border: none; padding: 14px 32px; border-radius: 60px; font-weight: bold; color: white;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>VELA</h4>
+        <p>Objects for slow living</p>
+        <p>© 2026 VELA — all rights</p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Journal</a>
+        <a href="#">Visit showroom</a>
+      </div>
+    </div>
+    <div class="copyright">
+      ✦ designed with intention ✦
+    </div>
+  </div>
+</footer>
+
+<!-- simple interactive add-to-cart simulation (just for UX, no backend) -->
+<script>
+  (function() {
+    const cartSpan = document.querySelector('.cart-icon span');
+    let cartCount = 0;
+    const addButtons = document.querySelectorAll('.add-btn');
+    
+    function updateCartDisplay() {
+      if(cartSpan) cartSpan.innerText = cartCount;
+    }
+    
+    addButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        cartCount += 1;
+        updateCartDisplay();
+        // subtle feedback
+        btn.style.transform = 'scale(0.96)';
+        setTimeout(() => { btn.style.transform = ''; }, 150);
+        // optional micro animation text
+        const originalText = btn.innerText;
+        btn.innerText = '✓ added';
+        setTimeout(() => { btn.innerText = originalText; }, 900);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

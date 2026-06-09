@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>VELA — Terms of Service</title>
+  <!-- Google Fonts + smooth base (same as homepage) -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fefefe;
+      color: #101010;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header / nav (exactly matching homepage) */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid #eeeef2;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.02);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: linear-gradient(145deg, #FF6A4B, #FF8A65);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c2c3a;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ff6a4b;
+    }
+
+    .cart-icon {
+      background: #f3f3f7;
+      padding: 8px 14px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* terms specific styling */
+    .terms-hero {
+      background: #faf9ff;
+      padding: 56px 0 32px;
+      border-bottom: 1px solid #f0eef5;
+    }
+
+    .terms-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .last-updated {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      border-left: 3px solid #ff7a54;
+      padding-left: 16px;
+    }
+
+    .terms-content {
+      padding: 48px 0 80px;
+    }
+
+    .terms-section {
+      margin-bottom: 48px;
+      scroll-margin-top: 100px;
+    }
+
+    .terms-section h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #121826;
+      letter-spacing: -0.01em;
+      border-left: 5px solid #ff7a54;
+      padding-left: 18px;
+    }
+
+    .terms-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 24px 0 12px 0;
+      color: #1f2a48;
+    }
+
+    .terms-section p {
+      margin-bottom: 16px;
+      color: #2c3a4b;
+      font-weight: 400;
+    }
+
+    .terms-section ul, .terms-section ol {
+      margin: 16px 0 16px 28px;
+      color: #2c3a4b;
+    }
+
+    .terms-section li {
+      margin: 8px 0;
+    }
+
+    .highlight-box {
+      background: #f9f5f0;
+      border-radius: 28px;
+      padding: 28px 32px;
+      margin: 32px 0;
+      border: 1px solid #ffe0d6;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #121826;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+
+    .back-home:hover {
+      background: #2d3a6e;
+      transform: translateX(-4px);
+    }
+
+    /* footer same as homepage */
+    footer {
+      background: #f9f8fc;
+      border-top: 1px solid #eaeef5;
+      margin-top: 40px;
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-col h4 {
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #4e5a6e;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .footer-col a:hover {
+      color: #ff6a4b;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #83899b;
+    }
+
+    @media (max-width: 750px) {
+      .terms-hero h1 { font-size: 2.2rem; }
+      .container { padding: 0 20px; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .terms-section h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="navbar">
+      <a href="#" class="logo">VELA<span>.</span></a>
+      <div class="nav-links">
+     <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="terms-hero">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <div class="last-updated">✨ Last updated: June 10, 2026 — VELA Studio</div>
+      <p style="margin-top: 20px; max-width: 720px; color: #4b5565;">Welcome to VELA. These terms govern your use of our website, products, and community. By shopping with us, you agree to the conditions outlined below.</p>
+      <a href="#" class="back-home" onclick="window.location.href='#';">← Back to Homepage</a>
+    </div>
+  </div>
+
+  <div class="container terms-content">
+    
+    <div class="terms-section" id="overview">
+      <h2>1. General overview</h2>
+      <p>VELA (“we”, “us”, “our”) operates the website velastudio.com (the “Site”). Throughout the Site, the terms “we”, “us” and “our” refer to VELA. By accessing or using any part of the Site, you agree to be bound by these Terms of Service. If you do not agree to all the terms, then you may not access the website or purchase any products.</p>
+      <p>We reserve the right to update, change or replace any part of these Terms by posting updates to our website. It is your responsibility to check this page periodically for changes.</p>
+    </div>
+
+    <div class="terms-section" id="products">
+      <h2>2. Products & made-to-order ethos</h2>
+      <p>VELA celebrates intentional, small-batch production. Many of our pieces are handcrafted or made-to-order. As a result, slight variations in color, texture, or dimensions are part of the unique character and are not considered defects. We believe in honest materials and timeless design.</p>
+      <div class="highlight-box">
+        <p style="font-weight: 600; margin-bottom: 8px;">✧ Craftsmanship note ✧</p>
+        <p>Images on our site are representative but may differ slightly from the final product due to artisanal methods. We stand behind every piece — if you have concerns, our support team is here for you.</p>
+      </div>
+      <p>We reserve the right to limit quantities of any products or services. All product descriptions and pricing are subject to change at any time without notice.</p>
+    </div>
+
+    <div class="terms-section" id="orders">
+      <h2>3. Orders & payment</h2>
+      <p>By placing an order through VELA, you represent that you are at least the age of majority in your state or province of residence. We accept major credit cards, PayPal, and other secure payment methods displayed at checkout. All payments are processed through encrypted gateways; we do not store full payment details.</p>
+      <p>Once an order is placed, you will receive an order confirmation email. This email does not guarantee acceptance of your order; we may cancel any order due to stock limitations, inaccurate pricing, or suspected fraud. If your order is cancelled after payment, you will be refunded in full.</p>
+      <h3>Pre-orders & deposits</h3>
+      <p>From time to time, we offer pre-order collections. Estimated shipping dates are provided in good faith but may be delayed due to production or material availability. You may cancel a pre-order for a full refund any time before the item ships.</p>
+    </div>
+
+    <div class="terms-section" id="shipping">
+      <h2>4. Shipping & delivery</h2>
+      <p>We ship worldwide from our studio warehouse. Shipping costs and estimated delivery windows are calculated at checkout. VELA is not responsible for delays caused by customs, carrier disruptions, or extreme weather. You are responsible for any import duties or taxes applicable to your region.</p>
+      <p>If a package is marked as delivered but you have not received it, please contact the carrier first; we will assist with claims where possible.</p>
+    </div>
+
+    <div class="terms-section" id="returns">
+      <h2>5. Returns & exchanges</h2>
+      <p>We want you to love your VELA pieces. If you are not completely satisfied, you may return eligible items within 14 days of delivery for a store credit or exchange. Returned items must be unused, in original packaging, and with all tags attached. Final sale items (including intimate goods, custom pieces, and limited drops marked “non-returnable”) cannot be returned.</p>
+      <p>To start a return, please contact us at <strong>care@velastudio.com</strong> with your order number. Customers are responsible for return shipping costs unless the item arrived damaged or defective. Refunds (store credit) will be issued within 7 business days after we receive and inspect the return.</p>
+      <div class="highlight-box">
+        <p>🌱 <strong>Sustainable commitment:</strong> We encourage thoughtful purchasing. For defective or damaged items, we offer free replacements or full refunds — just send us photos within 48 hours of delivery.</p>
+      </div>
+    </div>
+
+    <div class="terms-section" id="account">
+      <h2>6. User accounts & conduct</h2>
+      <p>You may need to create an account to access certain features. You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. VELA reserves the right to suspend or terminate accounts that violate these Terms or engage in fraudulent activity.</p>
+      <p>You agree not to use the Site for any unlawful purpose, to harass others, to upload malicious code, or to interfere with the security or functionality of the platform.</p>
+    </div>
+
+    <div class="terms-section" id="intellectual">
+      <h2>7. Intellectual property</h2>
+      <p>All content on the VELA website — including product images, graphics, logos, text, and design — is the property of VELA or its creators and is protected by copyright and trademark laws. You may not reproduce, distribute, or exploit any content without our express written permission. VELA™ and the VELA logo are registered trademarks.</p>
+    </div>
+
+    <div class="terms-section" id="limitation">
+      <h2>8. Limitation of liability</h2>
+      <p>To the fullest extent permitted by law, VELA shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or website. Our total liability for any claim relating to your purchase shall not exceed the amount paid by you for the product in question. Some jurisdictions do not allow certain exclusions, so this may not apply to you.</p>
+    </div>
+
+    <div class="terms-section" id="privacy">
+      <h2>9. Privacy policy snapshot</h2>
+      <p>Your privacy matters to us. We collect information necessary to process orders, improve your experience, and communicate relevant updates. We do not sell your personal data to third parties. For full details, please review our separate <a href="#" style="color: #ff6a4b;">Privacy Policy</a> (available on our footer).</p>
+    </div>
+
+    <div class="terms-section" id="governing">
+      <h2>10. Governing law & disputes</h2>
+      <p>These Terms are governed by the laws of the State of California, without regard to conflict of laws principles. Any dispute arising from these Terms or your use of the Site shall be resolved through binding arbitration in Los Angeles County, unless otherwise agreed in writing. For small claims, either party may bring an action in small claims court.</p>
+    </div>
+
+    <div class="terms-section" id="changes">
+      <h2>11. Changes to Terms</h2>
+      <p>We may update these Terms from time to time to reflect changes in our practices or legal requirements. The most current version will always be posted on this page, with the effective date noted at the top. Continued use of the Site after changes constitutes acceptance of the revised Terms.</p>
+    </div>
+
+    <div style="margin-top: 48px; padding: 32px 0; border-top: 1px solid #ececf0;">
+      <p style="color: #4b5565;">If you have any questions about these Terms, please reach out to our team:</p>
+      <p style="margin-top: 12px;"><strong>✉️ hello@velastudio.com</strong> &nbsp;|&nbsp; <strong>📍 Los Angeles / Kyoto</strong></p>
+      <a href="#" class="back-home" style="margin-top: 32px; display: inline-flex;" onclick="window.location.href='#';">⟵ Return to VELA Home</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>VELA</h4>
+        <p>Objects for slow living</p>
+        <p>© 2026 VELA — all rights</p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Terms</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Journal</a>
+        <a href="#">Visit showroom</a>
+      </div>
+    </div>
+    <div class="copyright">
+      ✦ crafted with care — read our terms above ✦
+    </div>
+  </div>
+</footer>
+
+<!-- simple micro cart simulation (just to preserve interactive feel) -->
+<script>
+  (function() {
+    const cartSpan = document.querySelector('.cart-icon span');
+    let cartCount = 0;
+    if(cartSpan) cartSpan.innerText = cartCount;
+    // making back-home buttons link to root (homepage simulation)
+    const homeButtons = document.querySelectorAll('.back-home');
+    homeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('✨ Welcome back to VELA homepage (demo navigation). In a real store this would redirect to your main shop.');
+        // optional: redirect to home page if needed: window.location.href = '/';
+      });
+    });
+  })();
+</script>
+</body>
+</html>

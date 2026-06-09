@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>VELA — About | Studio & Ethos</title>
+  <!-- Google Fonts + smooth base (consistent with homepage) -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fefefe;
+      color: #101010;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header / nav (consistent with all pages) */
+    .site-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid #eeeef2;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.02);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .logo span {
+      background: linear-gradient(145deg, #FF6A4B, #FF8A65);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c2c3a;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ff6a4b;
+    }
+
+    .cart-icon {
+      background: #f3f3f7;
+      padding: 8px 14px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* about page hero & unique styling */
+    .about-hero {
+      background: #faf9ff;
+      padding: 64px 0 48px;
+      border-bottom: 1px solid #f0eef5;
+    }
+
+    .about-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .about-intro {
+      max-width: 780px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #2c3a4b;
+      margin: 24px 0 16px;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #121826;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-top: 24px;
+      transition: 0.2s;
+    }
+
+    .back-home:hover {
+      background: #2d3a6e;
+      transform: translateX(-4px);
+    }
+
+    /* story & values sections */
+    .story-section {
+      padding: 64px 0 40px;
+    }
+
+    .split-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .split-text {
+      flex: 1.2;
+    }
+
+    .split-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      border-left: 6px solid #ff7a54;
+      padding-left: 20px;
+    }
+
+    .split-text p {
+      margin-bottom: 20px;
+      color: #3a4a5c;
+    }
+
+    .split-image {
+      flex: 1;
+    }
+
+    .split-image img {
+      width: 100%;
+      border-radius: 36px;
+      object-fit: cover;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin: 56px 0 40px;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 32px;
+      padding: 32px 24px;
+      border: 1px solid #f0eef5;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: #ffe0d6;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.05);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .value-card p {
+      color: #4b5a6e;
+    }
+
+    .team-section {
+      background: #fbfafd;
+      border-radius: 48px;
+      padding: 56px 48px;
+      margin: 40px 0 60px;
+    }
+
+    .team-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 48px;
+    }
+
+    .team-member {
+      text-align: center;
+      max-width: 220px;
+    }
+
+    .team-member img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 18px;
+      border: 4px solid #ffffff;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .team-member h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .team-member p {
+      color: #ff6a4b;
+      font-weight: 500;
+      margin-top: 6px;
+    }
+
+    .sustainability-banner {
+      background: linear-gradient(110deg, #1E2A5E 0%, #2d3f6e 100%);
+      border-radius: 40px;
+      padding: 52px 40px;
+      color: white;
+      margin: 32px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .sustainability-banner h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      max-width: 400px;
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 2px solid white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-outline-light:hover {
+      background: white;
+      color: #1E2A5E;
+    }
+
+    /* footer same style */
+    footer {
+      background: #f9f8fc;
+      border-top: 1px solid #eaeef5;
+      margin-top: 72px;
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-col h4 {
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #4e5a6e;
+      text-decoration: none;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .footer-col a:hover {
+      color: #ff6a4b;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #83899b;
+    }
+
+    @media (max-width: 750px) {
+      .about-hero h1 { font-size: 2.3rem; }
+      .container { padding: 0 20px; }
+      .navbar { flex-direction: column; align-items: flex-start; }
+      .team-section { padding: 32px 20px; }
+      .sustainability-banner h3 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="navbar">
+      <a href="#" class="logo">VELA<span>.</span></a>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="about-hero">
+    <div class="container">
+      <h1>Objects with a quiet soul</h1>
+      <div class="about-intro">
+        VELA was born from a simple belief: the things we surround ourselves with shape how we live. 
+        We create timeless pieces that honor material, craft, and the human hand — designed to be kept, not replaced.
+      </div>
+      <a href="#" class="back-home" onclick="window.location.href='#';">← Discover the studio</a>
+    </div>
+  </div>
+
+  <div class="container story-section">
+    <!-- origin story split layout with working image -->
+    <div class="split-layout">
+      <div class="split-text">
+        <h2>How VELA came to be</h2>
+        <p>Founded in 2021 between Los Angeles and Kyoto, VELA started as a quiet experiment — blending Japanese material sensitivity with California ease. We noticed how many objects in our homes felt temporary, disposable. So we set out to craft pieces that would age beautifully, carrying stories over decades.</p>
+        <p>Our name "VELA" (meaning "sail" in several languages) reflects our journey: moving with intention, guided by craft, light, and texture. Every piece we make is designed to be held, used, and loved without hurry.</p>
+      </div>
+      <div class="split-image">
+        <img src="https://picsum.photos/id/159/700/550" alt="Artisan hands shaping clay — VELA studio">
+      </div>
+    </div>
+
+    <!-- core values section -->
+    <h2 style="font-size: 2rem; font-weight: 700; margin: 40px 0 20px; text-align: center;">Our guiding principles</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3>Slow craft</h3>
+        <p>We work with small-batch artisans, favoring traditional techniques over mass production. Each piece carries subtle individuality.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🪶</div>
+        <h3>Radical longevity</h3>
+        <p>Designed to be repaired, restored, and passed on. We offer lifetime care for every VELA object.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌍</div>
+        <h3>Regenerative materials</h3>
+        <p>From recycled aluminum to FSC-certified timber — we prioritize low-impact, ethically sourced resources.</p>
+      </div>
+    </div>
+
+    <!-- team portrait area with realistic images -->
+    <div class="team-section">
+      <h2>The hands behind VELA</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://picsum.photos/id/64/300/300" alt="Maya Chen — founder">
+          <h4>Maya Chen</h4>
+          <p>Creative Director</p>
+        </div>
+        <div class="team-member">
+          <img src="https://picsum.photos/id/91/300/300" alt="Kenji Tanaka">
+          <h4>Kenji Tanaka</h4>
+          <p>Head of Craft</p>
+        </div>
+        <div class="team-member">
+          <img src="https://picsum.photos/id/169/300/300" alt="Sofia Laurent">
+          <h4>Sofia Laurent</h4>
+          <p>Materials Lead</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 44px; color: #5f6c80;">+ a growing community of makers, potters, and weavers across Japan, Mexico, and California.</p>
+    </div>
+
+    <!-- sustainability story banner with image -->
+    <div class="sustainability-banner">
+      <div>
+        <h3>Every object tells a story of place</h3>
+        <p style="margin-top: 12px; max-width: 450px; opacity: 0.9;">We travel to meet our makers, share resources, and ensure fair wages — from kiln to doorstep.</p>
+        <button class="btn-outline-light" onclick="alert('Learn more about our impact report → demo')">Read our impact pledge</button>
+      </div>
+      <div>
+        <img src="https://picsum.photos/id/96/320/260" alt="Ceramic studio workshop" style="border-radius: 30px; width: 260px; object-fit: cover; box-shadow: 0 12px 20px rgba(0,0,0,0.2);">
+      </div>
+    </div>
+
+    <!-- extra editorial quote -->
+    <div style="margin: 64px 0 20px; text-align: center; max-width: 720px; margin-left: auto; margin-right: auto;">
+      <p style="font-size: 1.4rem; font-weight: 400; color: #2d3a5e; line-height: 1.4;">“We don't chase seasons or trends. We shape objects that feel like they've always belonged — natural, honest, and enduring.”</p>
+      <p style="margin-top: 18px; font-weight: 500;">— Maya Chen, founder</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>VELA</h4>
+        <p>Objects for slow living</p>
+        <p>© 2026 VELA — all rights</p>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Journal</a>
+        <a href="#">Visit showroom</a>
+      </div>
+    </div>
+    <div class="copyright">
+      ✦ designed with intention, made to last ✦
+    </div>
+  </div>
+</footer>
+
+<!-- simple cart simulation and home buttons -->
+<script>
+  (function() {
+    const cartSpan = document.querySelector('.cart-icon span');
+    let cartCount = 0;
+    if(cartSpan) cartSpan.innerText = cartCount;
+    
+    const homeButtons = document.querySelectorAll('.back-home');
+    homeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('✨ Welcome back to VELA — the journey continues (demo navigation).');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
